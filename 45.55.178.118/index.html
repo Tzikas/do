@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<!-- CSS (load bootstrap) -->
+<!--<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">-->
+<link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="css/style.css">
+
+<style>
+</style>
+
+
+
+
+<!-- JS (load angular, ui-router, and our custom js file) -->
+<!--<script src="http://code.angularjs.org/1.2.13/angular.js"></script>-->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-beta.5/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>
+
+<script src="route.js"></script>
+<script src="js/controllers/MainController.js"></script>
+<script src="js/controllers/DesktopController.js"></script>
+<script src="js/controllers/MobileController.js"></script>
+<script src="js/controllers/TabletController.js"></script>
+
+
+
+
+<script src="js/model/HttpFactory.js"></script>
+<script src="js/model/PostingServices.js"></script>
+
+
+
+</head>
+
+<!-- apply our angular app to our site -->
+<body ng-app="routerApp" ng-controller="MainController">
+
+	<!-- NAVIGATION -->
+	<p id="instructions">Drag images onto screen and into any of your devices, or drag them off screen to delete.<p>  
+	
+	<nav class="navbar navbar-inverse" role="navigation" id="cssmenu">		
+		<ul class="nav navbar-nav" id="menu">
+			<li><a  id="desktop" ui-sref="desktop">Desktop</a></li>
+			<li><a  id="mobile" ui-sref="mobile">Mobile</a></li>
+			<li><a  id="tablet" ui-sref="tablet">Tablet</a></li>
+		</ul>		
+	</nav>
+
+
+	<!-- MAIN CONTENT -->
+	<!-- THIS IS WHERE WE WILL INJECT OUR CONTENT ============================== -->
+	<div class="container">	
+		<div ui-view autoscroll="false"></div>
+	</div>
+
+	<div id="trashcan" class="footer">
+		<span id="trash" class="glyphicon glyphicon-trash"></span>
+	</div>
+</body>
+
+<script>
+	//document.getElementById('userAgent').innerHTML = navigator.userAgent;
+
+</script>
+</html>

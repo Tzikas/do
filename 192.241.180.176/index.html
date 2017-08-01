@@ -1,0 +1,482 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>rendezvous</title>
+<script src="jquery-1.11.1.min.js"></script>
+
+
+
+<!--GLOBE
+<script type="text/javascript" src="/globe/third-party/Detector.js"></script>
+<script type="text/javascript" src="/globe/third-party/three.min.js"></script>
+<script type="text/javascript" src="/globe/third-party/Tween.js"></script>
+<script type="text/javascript" src="/globe/globe.js"></script>
+-->
+
+
+<link rel="stylesheet" type="text/css" href="css/styles.css">
+
+<!--
+<script type="text/javascript" src="soundScript.js"></script>
+<link rel="stylesheet" type="text/css" href="soundStyles.css">
+-->
+
+<style>
+
+
+</style>
+
+    <script src="js/prefixfree.min.js"></script> <!--what's this?-->
+
+</head>
+
+<body>
+
+
+<div id='rendezvous'>rendezvous</div> <!--&oacute-->
+<div id="menu" class="showTop">
+	<li><a onclick="scrolly(1)">locale</a></li>
+	<li><a id="music" onclick="scrolly(3)">music</a></li>
+	<li><a onclick="scrolly(6)">shop</a></li>	
+</div>
+<div id="bottomMenu" class="hideBottom">
+	<li><a href="#"><img src="fbook.png"></img></a></li>
+	<li><a href="#"><img src="twitter.png"></img></a></li>
+	<li><a href="#"><img src="gram.png"></img></a></li>
+	<li><a href="#"><img src="in.png"></img></a></li>
+	<li><a href="#"><img src="pinterest.png"></img></a></li>
+
+	
+</div>
+
+<div class="debug">
+	<label><input type="checkbox"></label>
+</div>
+
+
+
+
+
+
+
+
+
+<!--
+
+ <div id='container'></div>
+<div class='message' id='warning1'>
+  <h1>
+    This experiment requires the
+    <a href='https://dvcs.w3.org/hg/audio/raw-file/tip/webaudio/specification.html' target='_blank'>Web Audio API</a>
+  </h1>
+  <h2>
+    Please try in one of
+    <a href='http://caniuse.com/#feat=audio-api' target='_blank'>these browsers</a>
+  </h2>
+</div>
+<div class='message' id='warning2'>
+  <h1>
+    Safari users. You may hear audio but see no visuals. This is due to
+    <a href='http://goo.gl/6WLx1' target='_blank'>this bug</a>
+    in Safari 6
+  </h1>
+</div>
+<div class='message' id='intro'>
+  <h1>Simple music visualiser</h1>
+  <h2>Loading audio&hellip;</h2>
+</div>
+    <script src='http://soulwire.github.io/sketch.js/js/sketch.min.js'></script>
+
+        <script src="js/index.js"></script>
+
+	-->
+
+<div class="parallax">
+
+
+
+
+	<div id="group1" class="parallax__group">
+		<div class="parallax__layer parallax__layer--base">
+			<div class="title">Base Layer</div>
+			<video autoplay loop muted>
+				<source src="http://demosthenes.info/assets/videos/polina.webm" type="video/webm">
+				<source src="http://demosthenes.info/assets/videos/polina.mp4" type="video/mp4">
+			</video>
+
+		</div>
+
+
+	</div>
+	<div id="group2" class="parallax__group">
+		<div class="parallax__layer parallax__layer--base">
+			<div class="title"></div>
+			<div class="title locale">
+				<h6 id="address">221 7th street,
+				miami beach, fl</h6>
+				<h6 id="number">305.816.0445</h6>
+			</div>
+		</div>
+		<div class="parallax__layer parallax__layer--back">
+
+			<img id="esp" src="espanolaEarthGlass.png"></img>
+			
+		</div>
+	</div>
+	<div id="group3" class="parallax__group">
+		<div class="parallax__layer parallax__layer--fore">
+			<div class="title"></div>
+		</div>
+		<div class="parallax__layer parallax__layer--base">
+			<div class="title">Base Layer</div>
+			<video autoplay loop muted>
+				<source src="http://thenewcode.com/assets/videos/ocean-diver.mp4" type="video/mp4">
+			</video>
+
+		</div>
+
+	</div>
+	<div id="group4" class="parallax__group">
+		<div class="parallax__layer parallax__layer--base">
+			<div class="title"></div>	
+			<!--<audio id="audioElement" src="./audio/Odesza - Above The Middle.mp3"></audio>-->
+			<audio id="audioElement" src="./audio/Stromae - Tous Les Memes.mp3"></audio>
+
+			
+			<!--
+			<div id="player">
+				<button onclick="document.getElementById('audioElement').play()">Play the Audio</button>
+				<button onclick="document.getElementById('audioElement').pause()">Pause the Audio</button>
+				-<button onclick="document.getElementById('audioElement').volume+=0.1">Increase Volume</button>
+				<button onclick="document.getElementById('audioElement').volume-=0.1">Decrease Volume</button>-
+			</div>
+			-->
+			<a href="#" title="Play video" class="play active"></a>
+			<!--<a href="#" title="Play video" class="play"></a>
+			<a href="#" title="Play video" class="play"></a>-->
+			
+			<script>
+			function playSong(x){
+				document.getElementById('audioElement').src = "./audio/"+x;
+   			        document.getElementById('audioElement').play()	
+			}		
+
+			</script>
+			<div id="playlist">
+				<a onclick="playSong('Odesza - Above The Middle.mp3')">Odesza - Above The Middle</a>
+				<a onclick="playSong('Stromae - Tous Les Memes.mp3')">Stromae - Tous Les Memes</a>
+				<a onclick="playSong('the_xx_-_intro.mp3')">The XX - Intro</a>
+					
+			</div>
+		</div>
+
+		<div class="parallax__layer parallax__layer--back">	
+			<div class="title">.</div>
+
+		</div>
+		<div class="parallax__layer parallax__layer--deep">
+			<div class="title loading">Loading...</div>
+			<!--<div id="globeContainer"></div>-->
+			<div id="container">
+			
+			</div>
+			
+
+		</div>
+	</div>
+	<div id="group5" class="parallax__group">
+		<div class="parallax__layer parallax__layer--fore">
+			<div class="title"></div>
+		</div>
+		<div class="parallax__layer parallax__layer--base">
+			<div class="title">Base Layer</div>
+			<video autoplay loop muted>
+				<source src="http://thenewcode.com/assets/videos/estee.mp4" type="video/mp4">
+			</video>
+
+		</div>
+	</div>
+	<div id="group6" class="parallax__group">
+		<div class="parallax__layer parallax__layer--back">	
+				<div class="title">
+					<img id="pattern" src="pattern.jpg"></img>
+				</div>
+	
+		</div>
+		<div class="parallax__layer parallax__layer--base">
+	
+			<div class="clock-circle">
+				<div class="clock-open">
+					<div class="clock-face">
+						<div id="hour" class="clock-hour"></div>
+						<div id="minute" class="clock-minute"></div>
+						<div id="second" class="clock-second"></div>
+						<h6>open</h6>
+					</div>
+				</div>
+				<div id="display-time"></div>							
+			</div>
+
+
+
+			
+			
+
+
+			<!--http://codepen.io/soulwire/pen/Dscga
+			<div id='container'></div>
+
+			<div class='message' id='warning1'>
+				<h1>
+					<a href='https://dvcs.w3.org/hg/audio/raw-file/tip/webaudio/specification.html' target='_blank'>Web Audio API</a>
+				</h1>
+				<h2>
+					<a href='http://caniuse.com/#feat=audio-api' target='_blank'>these browsers</a>
+				</h2>
+			</div>
+			<div class='message' id='warning2'>
+				<h1>
+					<a href='http://goo.gl/6WLx1' target='_blank'>this bug</a>
+				</h1>
+			</div>
+			<div class='message' id='intro'>
+				<h1>Simple music visualiser</h1>
+				<h2>Loading audio&hellip;</h2>
+			</div>
+			-->
+
+
+
+		<!--MUSIC-->
+
+
+
+
+
+
+		</div>
+	</div>
+
+
+
+
+	<div id="group7" class="parallax__group">
+		<div class="parallax__layer parallax__layer--base">
+			<div class="title">Base Layer</div>
+			<video autoplay loop muted>
+				<!--
+				<source src="http://demosthenes.info/assets/videos/glacier.webm" type="video/webm">
+				<source src="http://demosthenes.info/assets/videos/glacier.mp4" type="video/mp4">
+				-->
+				<source src="papillon.mp4" type="video/mp4">
+
+			</video>
+
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript" src="js/script.js"></script>
+
+
+
+
+<!--
+<script src="music.js"></script>
+
+<script type="text/javascript" src="third-party/Detector.js"></script>
+<script type="text/javascript" src="third-party/three.min.js"></script>
+<script type="text/javascript" src="third-party/Tween.js"></script>
+<script type="text/javascript" src="globe.js"></script>
+-->
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+var HEIGHT = window.innerHeight
+
+
+
+function scrolly(i){
+	$(".parallax").animate({scrollTop: HEIGHT*i}, 777, function(){})
+}
+
+//document.getElementById('audioElement').play() On load 
+
+/*
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+ })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-10812217-1', 'auto');
+ga('send', 'pageview');
+*/
+
+
+
+
+
+
+/*GLOBE
+
+  if(!Detector.webgl){
+      Detector.addGetWebGLMessage();
+    } else {
+
+
+
+      var years = ['1990','1995','2000'];
+      //var container = document.getElementById('container');
+      var container = document.getElementById('globeContainer');
+      
+      var globe = new DAT.Globe(container);
+
+      console.log(globe);
+
+
+           };
+      };
+   
+  
+    
+      var i, tweens = [];
+      
+      var settime = function(globe, t) {
+        return function() { //Adds z-axis lines to places on the globe 
+          new TWEEN.Tween(globe).to({time: t/years.length},500).easing(TWEEN.Easing.Cubic.EaseOut).start();
+	/*
+          var y = document.getElementById('year'+years[t]);
+          if (y.getAttribute('class') === 'year active') {
+            return;
+          }
+          var yy = document.getElementsByClassName('year');
+          for(i=0; i<yy.length; i++) {
+            yy[i].setAttribute('class','year');
+          }
+          y.setAttribute('class', 'year active');
+		*/
+
+      
+      /*
+ //     for(var i = 0; i<years.length; i++) {
+   //     var y = document.getElementById('year'+years[i]);
+     //   y.addEventListener('mouseover', settime(globe,i), false);
+     // }
+	*/
+
+
+
+
+/*GLOBE
+
+      var xhr;
+      TWEEN.start();
+      
+      
+      xhr = new XMLHttpRequest();
+      xhr.open('GET', '/globe/population909500.json', true);
+      xhr.onreadystatechange = function(e) {
+        if (xhr.readyState === 4) {
+          if (xhr.status === 200) {
+            var data = JSON.parse(xhr.responseText);
+            window.data = data;
+            for (i=0;i<data.length;i++) {
+              globe.addData(data[i][1], {format: 'magnitude', name: data[i][0], animated: true});
+            }
+            globe.createPoints();
+            settime(globe,0)();
+            globe.animate();
+            document.body.style.backgroundImage = 'none'; // remove loading
+          }
+        }
+      };
+      xhr.send(null);
+    }
+
+/*
+	setInterval(function(){
+		maximum = 10;
+		minimum = 0;
+		var randomnumber = Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
+		console.log(randomnumber)
+		//settime(globe,randomnumber)();
+		return function() { //Adds z-axis lines to places on the globe 
+		          new TWEEN.Tween(globe).to({time: randomnumber},500).easing(TWEEN.Easing.Cubic.EaseOut).start();
+		}
+		}, 1000); 
+*/
+</script>
+

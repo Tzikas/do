@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="AngStarter">
+<head>
+<meta charset="UTF-8">
+<title>AngStarter</title>
+<!--Thumb Animations
+
+<link rel="stylesheet" type="text/css" href="thumbs/css/demo.css" />
+<link rel="stylesheet" type="text/css" href="thumbs/css/normalize.css" />
+
+
+-->
+<link rel="stylesheet" type="text/css" href="thumbs/fonts/font-awesome-4.5.0/css/font-awesome.min.css" />
+<link rel="stylesheet" type="text/css" href="thumbs/css/icons.css" />
+
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<!--Import materialize.css-->
+<link type="text/css" rel="stylesheet" href="../bower_components/Materialize/dist/css/materialize.min.css"  media="screen,projection"/>
+
+<link rel="stylesheet" href="css/app.css">
+
+</head>
+<body>
+<div class="container">
+	<div class="row">
+		<header class="column-12 header">
+			<div id="logo">Park Street</div>
+				
+			<ul ng-init="selectedTab = 'home'" class="navbar">
+				<li>
+				<a class="main" ng-click="selectedTab = 'home'" ng-href="#/home"><h4 class="glyphicon glyphicon-home"></h4><span class="main-nav-text"><br>Home</span></a>
+
+				</li>				
+				<li>
+				<a class="main" ng-click="selectedTab = 'about'" ng-href="#/about"><h4 class="glyphicon glyphicon-glass"></h4></h4><span class="main-nav-text"><br>Wines</span></a>
+					<span class="sub-nav-items">
+						<a ng-href="" class='redWine' ng-click="selectedTab = ''" ng-class="{'active':selectedTab === 'about'}">1</a>	
+						<a ng-href="" class='whiteWine'  ng-click="selectedTab = ''" ng-class="{'active':selectedTab === 'about'}">2</a>	
+						<a ng-href="" class='whiteWine'  ng-click="selectedTab = ''" ng-class="{'active':selectedTab === 'about'}">3</a>	
+						
+					</span>	
+			
+				</li>
+				<li>
+				<a class="main" ng-click="selectedTab = 'contact'" ng-href="#/contact"><h4 class="glyphicon glyphicon-flash"></h4><span class="main-nav-text"><br>Team</span></a>
+					<span class="sub-nav-items">
+						<a ng-href="#hulk"   class="scroll"  ng-click="selectedTab = ''" ng-class="{'active':selectedTab === 'contact'}">Hulk</a>	
+						<a ng-href="#ironman"  class="scroll"  ng-click="selectedTab = ''" ng-class="{'active':selectedTab === 'contact'}">IronMan</a>			
+						<a ng-href="#robocop"  class="scroll" ng-click="selectedTab = ''" ng-class="{'active':selectedTab === 'contact'}">RoboCop</a>			
+						<a ng-href="#spiderman"   class="scroll"  ng-click="selectedTab = ''" ng-class="{'active':selectedTab === 'contact'}">SpiderMan</a>
+						<a ng-href="#batman"   class="scroll" ng-click="selectedTab = ''" ng-class="{'active':selectedTab === 'contact'}">Batman</a>				
+						<a ng-href="#captain"  class="scroll" ng-click="selectedTab = ''" ng-class="{'active':selectedTab === 'contact'}">Captain</a>					
+					</span>	
+				</li>
+				<li>
+				<a class="main" ng-click="selectedTab = 'sql'" ng-href="#/sql"><h4 class="glyphicon glyphicon-send"></h4><span class="main-nav-text"><br>Sql</span></a>
+				</li>
+				<a class="main" ng-click="selectedTab = 'http'" ng-href="#/http"><h4 class="glyphicon glyphicon-sunglasses"></h4><span class="main-nav-text"><br>Http</span></a>	
+				</li>			
+				<li>
+				<a class="main" ng-click="selectedTab = 'art'" ng-href="#/art"><h4 class="glyphicon glyphicon-fire"></h4><span class="main-nav-text"><br>Art</span></a>
+					<span class="sub-nav-items">
+						<a ng-href="" class='' ng-click="selectedTab = ''" ng-class="{'active':selectedTab === 'art'}">A</a>	
+						<a ng-href="" class='' ng-click="selectedTab = ''" ng-class="{'active':selectedTab === 'art'}">B</a>	
+						<a ng-href="" class='' ng-click="selectedTab = ''" ng-class="{'active':selectedTab === 'art'}">C</a>	
+					</span>
+	
+				<!--
+					<span class="sub-nav-items">
+						<a ng-href="" class='' ng-click="selectedTab = ''" ng-class="{'active':selectedTab === 'art'}"><img style="width:50px; margin-top:-25px;"src="img/sherpa.png"></img></a>	
+						<a ng-href="" class=''  ng-click="selectedTab = ''" ng-class="{'active':selectedTab === 'art'}"><img style="width:50px; margin-top:-25px;"src="img/Hippocampus.png"></img></a>	
+						<a ng-href="" class='' ng-click="selectedTab = ''" ng-class="{'active':selectedTab === 'art'}"><img style="width:50px; margin-top:-15px;"src="img/brain.jpg"></img></a>	
+						<a ng-href="" class=''  ng-click="selectedTab = ''" ng-class="{'active':selectedTab === 'art'}"><img style="width:50px; margin-top:-25px;"src="img/Hippocampus2.png"></img></a>		
+					</span>	
+				-->
+				</li>	
+			</ul>
+
+
+		</header>
+	</div>
+	<div class="row">
+		<div class="column-12" ng-view>
+		</div>
+	</div>
+	<div class="row">
+		<div class="column-12 footer">
+			<p>&copy; Free for all<span year></span> <a target="_blank" href="https://github.com/mriverodorta/ang-starter">Visit project page</a></p> 
+		</div>
+	</div>
+</div>
+
+
+
+<!-- Bower components includes -->
+<!--<script src="bower_components/lodash/dist/lodash.js"></script>-->
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
+<script src="bower_components/jquery/dist/jquery.js"></script>    
+<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="../bower_components/Materialize/dist/js/materialize.min.js"></script>
+<script src="//cdn.jsdelivr.net/jquery.scrollto/2.1.2/jquery.scrollTo.min.js"></script>
+<script src="bower_components/angulike/angulike.js"></script>
+
+
+<!--Thumb Animations-->
+<script src="thumbs/js/mo.min.js"></script>
+<!--<script src="thumbs/js/demo.js"></script>
+-->
+
+<!-- Application definition -->
+<script src="js/app.js"></script>
+
+<!-- Application Configurations -->
+<script src="js/Config/Constants.js"></script>
+<script src="js/Config/Bootstrap.js"></script>
+<script src="js/Config/Routes.js"></script>
+<script src="js/Config/HTTP.js"></script>
+<script src="js/Config/RequestInterceptor.js"></script>
+<script src="js/Config/ResponseInterceptor.js"></script>
+<script src="js/Config/Security.js"></script>
+
+<!-- Application Services -->
+<script src="js/Services/Auth.js"></script>
+
+<!-- Application Models -->
+<script src="js/Models/Crud.js"></script>
+
+<!-- Application Filters -->
+<script src="js/Filters/word.js"></script>
+
+<!-- Application Directives -->
+<script src="js/Directives/year.js"></script>
+
+<!-- Application Controllers -->
+<script src="js/Controllers/HomeCtrl.js"></script>
+<script src="js/Controllers/AboutCtrl.js"></script>
+<script src="js/Controllers/ContactCtrl.js"></script>
+<script src="js/Controllers/SqlCtrl.js"></script>
+<script src="js/Controllers/ArtCtrl.js"></script>
+<script src="js/Controllers/HttpCtrl.js"></script>
+
+
+</body>
+</html>
